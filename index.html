@@ -5,17 +5,142 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Bootstrap demo</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-        <style>
-            @media (min-width: 992px) {
-                .container {
-                    max-width: 900px;
-                }
-            }
-            .card,
-            .card-img-top {
-                border: none;
-                border-radius: 0 0;
-            }
+       
+       <style>
+       /* Se importa la tipografía desde google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Poppins&display=swap');
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+.card,
+.card-img-top {
+    border: none;
+    border-radius: 0 0;
+}
+/* Texto general */
+
+body{
+    background-image: url("carlitosfondo.jpg");
+    background-repeat: repeat;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;    
+    width:100vw;
+    height: 100vh;    
+}
+/*Panel contiene a las demás divs*/
+
+.panel{
+    font-family: 'Poppins', sans-serif;
+    /*Auto sirve para que se adapte al tamaño*/
+    height: auto;
+    width: auto;
+    margin: 150px;
+    padding: 5px;
+    /*display: flex; lo sacamos porque estiraba el cuadrado*/
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    background-color: #47a2b7;
+}
+.question-container{
+    font-family: 'Nunito', sans-serif;
+    margin: 10px;
+    padding: 5px;
+    width: 80vw;
+    height: 10vh;
+    /* background-color: #c7dddf; */
+    font-size: x-large;
+    text-align: center;
+      
+}
+.result{
+    font-family: 'Nunito', sans-serif;
+    margin: 10px;
+    padding: 5px;
+    width:80vw;
+    height: 10vh;
+    text-align: center;
+    font-size: 50px;
+      
+}
+.option-container{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-around; 
+    margin: 10px;
+    padding: 5px;
+    width: 80vw;
+    height: 20vh;
+   /* background-color: #9eb1b3;*/
+        
+}
+.option{    
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    width: 15vw;
+    height: 10vh;
+    font-size: larger;
+    background-color: lightskyblue;
+    border: none;
+}
+/*Cuando una posa el mouse encima y se pone blanco*/
+.option:hover{
+    font-family: 'Poppins', sans-serif;
+    background-color: lightgoldenrodyellow;
+}
+.navigation{
+    font-family: 'Nunito', sans-serif;
+    width: 80vw;
+    height: 10vh;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    /*background-color:#c7dddf;*/
+}
+  
+.evaluate,.next{
+    font-family: 'Nunito', sans-serif;
+    width:30vw;
+    height: 8vh;
+    padding: 5px;
+    font-size: larger;
+}
+.evaluate{
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    background-color:  #3e1094; /* Purple */;
+    border: none;
+}
+.next{
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    background-color:  #3e1094; /* Purple */;
+    border: none
+}
+.welcome{
+    font-family: 'Nunito', sans-serif;
+    margin: 10px;
+    padding: 200px;
+    text-align: center;
+    font-size: 50px;
+}
+.btn {
+  font-family: 'Nunito', sans-serif;
+  background-color: #3e1094; /* Purple */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28px;
+}
         </style>
     </head>
     <body class="bg-light">
@@ -95,7 +220,33 @@
                             <a href="https://arte.plus/aprende-la-armonia-del-color/" target="_blank">armonías de color</a> y, por otro, la de trabajar con
                             <a href="https://www.pinturayartistas.com/los-7-contrastes-de-colores-de-johannes-itten/" target="_blank">esquemas de contraste</a>.
                         </p>
+                        
+                        <!--Panel preguntas-->
+                        <div class="panel">
+                            <div class="row align-items-center bg-white mb-4 g-0 shadow-sm">
+                        
+                            <div class="question-container" id="question">
+                              Pregunta va aquí.
+                            </div>
 
+                            <div class="option-container">
+                              <button class="option" onclick="" id="op1">option1</button>
+                        
+                              <button class="option" id="op2">option2</button>
+                        
+                              <button class="option" id="op3">option3</button>
+                        
+                            </div>
+
+                            <div class="navigation">
+                              <button class="evaluate">Ver resultado</button>
+                              <button class="next" id="next">Siguiente</button>
+                            </div>
+
+                          </div>
+                        </div>
+                        <script type="text/javascript" src="https://raw.githubusercontent.com/carlajmatus/front-clase15/main/script.js"></script>
+                        
                         <h3 class="text-center mt-5 mb-4 text-decoration-underline">Tipografías</h3>
 
                         <div class="row mt-2 mb-5">
@@ -199,24 +350,24 @@
                         <p class="d-flex justify-content-between small p-1 m-0">
                             <a href="index.html">Nombre del proyecto</a>
                             <!--reemplaza el # que sigue con vínculo a tu propio GitHub-->
-                            <a href="#" class="d-none d-lg-inline">Nombre Apellido © 2022</a>
+                            <a href="#" class="d-none d-lg-inline">Carla J. Matus © 2022</a>
                         </p>
                     </div>
                 </div>
             </div>
         </footer>
 
-        <script>
-            // Reemplaza los colores dentro del paréntesis cuadrado, respetando las comillas.
-            // Si necesitas que un color ocupe más espacio en la paleta: debes repetirlo.
-            var colores = ["#F2C2D4", "#F2C2D4", "#F2C2D4", "#F2C2D4", "#F2C2D4", "#A7F2F2", "#A7F2F2", "#05AFF2", "#FEF204", "#F25D07", "#03A65A", "#000000"];
-            // No reemplaces nada de lo que sigue.
-            var n = colores.length;
-            var w = 100 / n;
-            for (var x = 0; x < n; x++) {
-                document.getElementById("colores").innerHTML += '<rect width="' + w + '" height="20" x="' + x * w + '" y="0" fill="' + colores[x] + '" stroke="' + colores[x] + '"/>';
-            }
-            document.querySelectorAll("a").forEach((a) => a.classList.add("link-dark"));
-        </script>
+<script>
+    // Reemplaza los colores dentro del paréntesis cuadrado, respetando las comillas.
+    // Si necesitas que un color ocupe más espacio en la paleta: debes repetirlo.
+    var colores = ["#F2C2D4", "#F2C2D4", "#F2C2D4", "#F2C2D4", "#F2C2D4", "#A7F2F2", "#A7F2F2", "#05AFF2", "#FEF204", "#F25D07", "#03A65A", "#000000"];
+    // No reemplaces nada de lo que sigue.
+    var n = colores.length;
+    var w = 100 / n;
+    for (var x = 0; x < n; x++) {
+        document.getElementById("colores").innerHTML += '<rect width="' + w + '" height="20" x="' + x * w + '" y="0" fill="' + colores[x] + '" stroke="' + colores[x] + '"/>';
+    }
+    document.querySelectorAll("a").forEach((a) => a.classList.add("link-dark"));
+</script>
     </body>
 </html>
